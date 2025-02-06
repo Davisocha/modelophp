@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+body {
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.fundofixo {
+    background: url('../images/churrascaria.jpg') no-repeat fixed;/*background não repete e fica fixo*/
+    -webkit-background-size: cover ;
+    background-size: cover;/*cobre tudo no site*/
+}
