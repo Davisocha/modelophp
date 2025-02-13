@@ -3,7 +3,7 @@
 
     $lista_tipos = $conn->query("select * from tipos order by rotulo");//consulta para pegar a coleção no banco de Dados
     $rows_tipos = $lista_tipos->fetch_all();//fetch_all traz o resultado como um array associativo que é o (['nome']), é isso que faz ela ser associativa 
-        //var_dump($rows_tipos);//o var dump esvaziar uma matriz 
+    //var_dump($rows_tipos);//o var dump esvaziar uma matriz 
 ?>
 <!-- BOOTSTRAP -->
     <!-- abre a barra de navegação -->  
@@ -63,7 +63,7 @@
                     id="form-busca" class="navbar-form navbar-left" role="search">
                         <div class="input-group"><!--caixa de busca-->
                             <input type="search" name="buscar" id="buscar" size="9" class="form-control"
-                            aria-label="search" placeholder="Buscar produto" required>
+                            aria-label="search" placeholder="Buscar produto" minlength="3" required>
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
