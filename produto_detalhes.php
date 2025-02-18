@@ -5,7 +5,7 @@ include 'conn/connect.php';
 // consulta para trazer os dados se filtar (destaques)
 
 $id = $_GET['id'];
-$detalhe = $conn->query("SELECT * FROM vw_produtos where id = $id");
+$detalhe = $conn->query("SELECT * FROM vw_produtos where id = '$id'");
 $linha_detalhe = $detalhe->fetch_assoc();
 //var_dump($linha_detalhe);
 //$num_linhas = $linha_detalhe->$num_rows;
