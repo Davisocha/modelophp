@@ -8,6 +8,7 @@ if ($_POST) { //se tiver valor pra POST
     $rowLogin = $loginResult->fetch_assoc(); //vai pegar a linha e transformar em array associativo
     $numRow = $loginResult->num_rows; // a variavel vai receber as linhas de resultado
 
+    //esse bloco esta ai, porque tem gnt que pode chegar direto pro login e ele serve pra iniciar a sessão direto do login
     if (!isset($_SESSION)) {
         $sessaoAntiga = session_name('chulettaaa');
         session_start();
