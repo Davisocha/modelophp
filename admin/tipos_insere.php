@@ -3,24 +3,24 @@ include "acesso_com.php";
 ?>
 <?php
 if($_POST){
-    $login = $_POST['login'];
-    $senha = $_POST['senha'];
-    $nivel = $_POST['nivel_usuario'];
+    $rotulo = $_POST['rotulo'];
+    $sigla = $_POST['sigla'];
+    
 
-    $incluir = $conn->query("INSERT INTO usuarios VALUES (0,'$login', md5('$senha'),'$nivel')");
+    $incluir = $conn->query("INSERT INTO tipos VALUES (0,'$rotulo','$sigla')");
     
 }if(!isset($incluir)){
-    //echo "<script>alert('Usuario $login não cadastrado')</script>";
+    
 
 }else{
-     echo "<script>alert('Usuario $login cadastrado com sucesso')</script>";
+     echo "<script>alert('Tipo $rotulo cadastrado com sucesso')</script>";
  } ?>
 <!-- html:5 -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <title>Usuários - Insere</title>
+    <title>Tipos - Insere</title>
     <meta charset="UTF-8">
     <!-- Link arquivos Bootstrap CSS -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,48 +36,40 @@ if($_POST){
         <div class="row">
             <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4"><!-- dimensionamento -->
                 <h2 class="breadcrumb text-info">
-                    <a href="usuarios_lista.php">
+                    <a href="index.php">
                         <button class="btn btn-info" type="button">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                         </button>
                     </a>
-                    Inserindo Usuários
+                    Inserindo Tipos
                 </h2>
                 <div class="thumbnail">
                     <div class="alert alert-info">
-                        <form action="usuarios_insere.php" name="form_insere_usuario" id="form_insere_usuario" method="POST" enctype="multipart/form-data">
-                            <!-- input login_usuario -->
-                            <label for="login_usuario">Login:</label>
+                        <form action="tipos_insere.php" name="form_insere_tipo" id="form_insere_tipo" method="POST" enctype="multipart/form-data">
+                            <!-- input rotulo_tipo -->
+                            <label for="rotulo_tipo">Rotulo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="login" id="login" autofocus maxlength="30" placeholder="Digite o seu login." class="form-control" required autocomplete="off">
+                                <input type="text" name="rotulo" id="rotulo" autofocus maxlength="30" placeholder="Digite o Rotulo." class="form-control" required autocomplete="off">
                             </div><!-- fecha input-group -->
                             <br>
                             <!-- fecha input login_usuario -->
 
                             <!-- input senha_usuario -->
-                            <label for="senha">Senha:</label>
+                            <label for="senha">Sigla:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>
                                 </span>
-                                <input type="password" name="senha" id="senha" maxlength="8" placeholder="Digite a senha desejada." class="form-control" required autocomplete="off">
+                                <input type="text" name="sigla" id="sigla" maxlength="8" placeholder="Digite a sigla desejada." class="form-control" required autocomplete="off">
                             </div><!-- fecha input-group -->
                             <br>
                             <!-- fecha input senha_usuario -->
 
                             <!-- radio nivel_usuario -->
-                            <label for="nivel">Nível do usuário</label>
-                            <div class="input-group">
-                                <label for="nivel_c" class="radio-inline">
-                                    <input type="radio" name="nivel_usuario" id="nivel" value="com" checked>Comum
-                                </label>
-                                <label for="nivel_s" class="radio-inline">
-                                    <input type="radio" name="nivel_usuario" id="nivel" value="sup">Supervisor
-                                </label>
-                            </div><!-- fecha input-group -->
+                            <!-- fecha input-group -->
                             <br>
                             <!-- Fecha radio nivel_usuario -->
 
