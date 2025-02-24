@@ -77,7 +77,7 @@ if($_POST){
                             <!-- Fecha radio nivel_usuario -->
 
                             <!-- btn enviar -->
-                            <input type="submit" value="Atualizar" role="button" name="enviar" id="enviar" class="btn btn-block btn-info">
+                            <input type="submit" value="Atualizar" role="button" name="enviar" id="enviar" class="btn btn-block btn-info" href="../admin/tipos_lista.php">
                         </form>
                     </div><!-- fecha alert -->
                 </div><!-- fecha thumbnail -->
