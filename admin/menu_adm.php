@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <nav class="nav navbar-inverse">
     <div class="container-fluid">
         <!-- Agrupamento para exibição Mobile -->

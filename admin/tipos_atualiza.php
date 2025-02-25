@@ -10,14 +10,21 @@ if($_POST){
     $sigla = $_POST['sigla'];
     
 
-    $incluir = $conn->query("UPDATE tipos SET rotulo = '$rotulo', sigla = '$sigla' where id = $ID");
+    $update = $conn->query("UPDATE tipos SET rotulo = '$rotulo', sigla = '$sigla' where id = $ID");
     
-}if(!isset($incluir)){
     
 
-}else{
-     echo "<script> alert('Tipo $rotulo alterado com sucesso')";
- } ?>
+    if($update){
+        HEADER ('location: tipos_lista.php');
+    }
+}
+        if(isset($_GET['id']))
+    {
+        
+        $user = $conn->query("SELECT * from tipos where id =".$_GET['id']);
+        $userRow =$user->fetch_assoc();
+    }
+  ?>
 <!-- html:5 -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -55,7 +62,7 @@ if($_POST){
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="rotulo" id="rotulo" value="" maxlength="30" placeholder="Digite o novo Rotulo." class="form-control" required autocomplete="off">
+                                <input type="text" name="rotulo" id="rotulo" value="<?php echo $userRow['rotulo'];?>" maxlength="30" placeholder="Digite o novo Rotulo." class="form-control" required autocomplete="off" >
                                 </div><!-- fecha input-group -->
                             <br>
                             <!-- fecha input login_usuario -->
@@ -66,7 +73,7 @@ if($_POST){
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="sigla" id="sigla" maxlength="8" placeholder="Digite a nova sigla desejada." class="form-control" required autocomplete="off">
+                                <input type="text" name="sigla" id="sigla" value="<?php echo $userRow['sigla'];?>" maxlength="8" placeholder="Digite a nova sigla desejada." class="form-control" required autocomplete="off">
                             </div><!-- fecha input-group -->
                             <br>
                             <!-- fecha input senha_usuario -->
