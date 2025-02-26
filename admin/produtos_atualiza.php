@@ -12,7 +12,7 @@ if($_POST){
     $dir_img = "../images/".$rand.$nome_img;
     //mova o arquivo
     move_uploaded_file($tmp_img,$dir_img);
-    $nome_img($rand.$nome_img);
+    $nome_img= ($rand.$nome_img);
     
     }else{
         $nome_img = $_POST['imagem_atual'];
